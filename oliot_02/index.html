@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 06 Osa oliot 02</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./layout.css" />
+  </head>
+  <body>
+    <h1>Hei JavaScript</h1>
+    <script>
+      console.log("Tehtävä 1");
+      /* Tehtävä 1
+      Luo JavaScript-taulukko nimeltä `kirjasto`, joka edustaa kirjojen kokoelmaa.
+      Jokaisella kirjalla tulisi olla ominaisuudet `otsikko`, `kirjailija` ja `julkaisuvuosi`.
+      Lisää ainakin kaksi kirja-oliota tähän kokoelmaan.
+      */
+      // Sinun koodisi tähän
+
+      let kirjasto = [
+        {
+          otsikko: "Puhdistus",
+          kirjaija: "Sofi Oksanen",
+          julkaisuvuosi: 2008,
+        },
+        {
+          otsikko: "Sinuhe egyptiläinen",
+          kirjaija: "Mika Waltari",
+          julkaisuvuosi: 1944,
+        },
+        {
+          otsikko: "Kohtuuttomuus",
+          kirjaija: "Pirkko Saisio",
+          julkaisuvuosi: 2008,
+        },
+      ];
+      console.log(kirjasto);
+
+      console.log("Tehtävä 2");
+      /* Tehtävä 2
+      Käytä `kirjaston` ensimmäisen kirjan `otsikko`-ominaisuutta ja tulosta se konsoliin.
+      Muuta toisen kirjan `julkaisuvuotta` uuteen vuoteen kokoelmassa ja kirjaa päivitetty kirja-olio konsoliin.
+      */
+      // Sinun koodisi tähän
+      console.log(kirjasto[0].otsikko); // Puhdistus
+      kirjasto[1].julkaisuvuosi = 1945;
+      console.log(kirjasto[1]); // {otsikko: 'Sinuhe egyptiläinen', kirjaija: 'Mika Waltari', julkaisuvuosi: 1945}
+
+      console.log("Tehtävä 3");
+      /* Tehtävä 3
+      Käytä pistenotaatiota lisätäksesi uuden ominaisuuden `lajityypit` (merkkijonotaulukko) ensimmäiseen kirjaan `kirjasto`-taulukossa.
+      Käytä hakasulkunotaatiota lisätäksesi boolean-ominaisuuden `onSaatavilla` samaan kirjaan, ilmaisten sen saatavuuden.
+      */
+      // Sinun koodisi tähän
+      kirjasto[0].lajityypit = "Historiallinen proosa";
+      kirjasto[0]["onSaatavilla"] = true;
+      console.log(kirjasto[0]); // {otsikko: 'Puhdistus', kirjaija: 'Sofi Oksanen', julkaisuvuosi: 2008, lajityypit: 'Historiallinen proosa', onSaatavilla: true}
+
+      console.log("Tehtävä 4");
+      /* Tehtävä 4
+      Määritä konstruktorifunktio nimeltä `Kirja`, joka voi luoda uusia kirja-olioita ominaisuuksilla `otsikko`, `kirjailija`, `julkaisuvuosi` ja `lajityypit`.
+      Käyttäen `Kirja`-konstruktoria, luo uusi kirja-olio annetuilla syöttöarvoilla ja lisää se `kirjasto`-kokoelmaan.
+      */
+      // Sinun koodisi tähän
+      function Kirja(otsikko, kirjaija, julkaisuvuosi, lajityypit) {
+        this.otsikko = otsikko;
+        this.kirjaija = kirjaija;
+        this.julkaisuvuosi = julkaisuvuosi;
+        this.lajityypit = lajityypit;
+      }
+      let uusiKirja = new Kirja(
+        "Parvekejumalat",
+        "Anja Snellman",
+        2010,
+        "yhteiskunnallinen romaani"
+      );
+      kirjasto.push(uusiKirja);
+      console.log(kirjasto);
+      console.log(kirjasto[3]);
+
+      console.log("Tehtävä 5");
+      /* Tehtävä 5
+      Kirjoita funktio nimeltä `luoKirja`, joka ottaa parametrit `otsikko`, `kirjailija`, `julkaisuvuosi` ja `lajityypit` (taulukko).
+      Funktion tulisi palauttaa uusi kirja-olio näillä ominaisuuksilla.
+      Testaa `luoKirja`-funktiota luomalla uusi kirja-olio käyttäjän antamilla syötteillä ja kirjaa uusi kirja-olio konsoliin.
+      */
+      // Sinun koodisi tähän
+      function luoKirja(otsikko, kirjaija, julkaisuvuosi, lajityypit) {
+        return {
+          otsikko: otsikko,
+          kirjaija: kirjaija,
+          julkaisuvuosi: julkaisuvuosi,
+          lajityypit: lajityypit,
+        };
+      }
+      let uusiKirja2 = luoKirja(
+        "Totta",
+        "Riikka Pulkkinen",
+        2010,
+        "Psykologinen romaani"
+      );
+      console.log(uusiKirja2);
+
+      console.log("Tehtävä 6");
+      /* Tehtävä 6
+      Muunna `kirjasto`-kokoelma JSON-merkkijonoksi ja kirjaa se konsoliin.
+      Tee JSON-merkkijonosta JavaScript-olio ja kirjaa ensimmäisen kirjan otsikko konsoliin.
+      */
+      // Sinun koodisi tähän
+      let kirjastoJSON = JSON.stringify(kirjasto);
+      console.log(kirjastoJSON);
+      let jäsennettyKirjasto = JSON.parse(kirjastoJSON);
+      console.log(jäsennettyKirjasto[0].otsikko); // 'Puhdistus'
+    </script>
+  </body>
+</html>
