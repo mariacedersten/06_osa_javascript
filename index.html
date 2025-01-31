@@ -3,13 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript 06 Osa oliot 02</title>
+    <title>JavaScript 06 osa</title>
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./layout.css" />
   </head>
   <body>
     <h1>Hei JavaScript</h1>
     <script>
+      // oliot_01
+      console.log("--Oliot 01--");
+
+      console.log("Tehtävä 1");
+
+      // Tehtävä 1: Olion luominen ja tulostaminen
+      /*
+Luo olio nimeltään `henkilö` ominaisuuksilla: `nimi` asetettuna "Aleksi" ja `ikä` asetettuna 30.
+Tulosta tämä olio konsoliin.
+*/
+      // Kirjoita olio tähän
+
+      let henkilö = {
+        nimi: "Aleksi",
+        ikä: 30,
+      };
+      console.log(henkilö); // { nimi: 'Aleksi', ikä: 30 }
+
+      console.log("Tehtävä 2");
+      // Tehtävä 2: Olio-ominaisuuksien käyttäminen
+      /*
+Käytä ja kirjaa `nimi` ja `ikä` henkilö-oliosta.
+*/
+      // Kirjoita koodisi tähän
+
+      console.log("Nimi:", henkilö.nimi); // Nimi: Aleksi
+      console.log("Ikä:", henkilö.ikä); // Ikä: 30
+
+      console.log("Tehtävä 3");
+      // Tehtävä 3: Olion ominaisuuksien muokkaaminen
+      /*
+Päivitä `henkilö`-olio: aseta `ikä` arvoon 31. Lisää sitten uusi ominaisuus `maa` asetettuna "Kroatia".
+Kirjaa päivitetty olio.
+*/
+      // Kirjoita koodisi tähän
+
+      henkilö.ikä = 31;
+      henkilö.maa = "Kroatia";
+      console.log(henkilö); // { nimi: 'Aleksi', ikä: 31, maa: 'Kroatia' }
+
+      console.log("Tehtävä 4");
+      // Tehtävä 4: Sisäkkäiset oliot
+      /*
+Luo olio `opiskelija` ominaisuuksilla: `nimi` arvolla "Emilia" ja `tiedot` oliona, jossa ominaisuudet `ikä` asetettuna 22 ja `kurssi` asetettuna "JavaScript".
+Kirjaa `opiskelijan` `kurssi`.
+Odotettu tulos: "Kurssi: JavaScript"
+*/
+      // Kirjoita olio ja koodisi tähän
+
+      let opiskelija = {
+        nimi: "Emilia",
+        tiedot: {
+          ikä: 22,
+          kurssi: "JavaScript",
+        },
+      };
+      console.log("Kurssi:", opiskelija.tiedot.kurssi); // Kurssi: JavaScript
+      console.log(`Kurssi: ${opiskelija.tiedot.kurssi}`); // Kurssi: JavaScript
+
+      console.log("Tehtävä 5");
+      // Tehtävä 5: Ominaisuuksien poistaminen
+      /*
+Poista `henkilö`-oliosta ominaisuus `ikä`. Kirjaa saatu olio.
+Odotettu tulos: { nimi: "Aleksi", maa: "Kroatia" }
+*/
+      // Kirjoita koodisi tähän
+
+      delete henkilö.ikä;
+      console.log(henkilö); // { nimi: "Aleksi", maa: "Kroatia" }
+
+      console.log("Tehtävä 6");
+      // Tehtävä 6: Olion avaimet ja arvot
+      /*
+Kirjaa kaikki ominaisuuden nimet (avaimet) `henkilö`-oliosta, sitten kirjaa kaikki ominaisuuden arvot.
+Odotetut tulokset:
+Avaimet: nimi, maa
+Arvot: Aleksi, Kroatia
+*/
+      // Kirjoita koodisi tähän
+
+      console.log("Avaimet:", Object.keys(henkilö).join(", ")); // Avaimet: nimi, maa
+      console.log("Arvot:", Object.values(henkilö).join(", ")); // Arvot: Aleksi, Kroatia
+
+      console.log("Tehtävä 7");
+      // Tehtävä 7: Olion metodien käyttäminen
+      /*
+Määritä metodi `tervehdi` sisälle `henkilö`-olioon, joka palauttaa "Hei, nimeni on Aleksi".
+Kutsu tätä metodia ja kirjaa tulos.
+Odotettu tulos: "Hei, nimeni on Aleksi"
+*/
+      // Muokkaa henkilö-oliota ja kirjoita metodin kutsuminen tähän
+
+      henkilö.greet = function () {
+        return `Hei, nimeni on ${this.nimi}`;
+      };
+      console.log(henkilö.greet()); // Hei, nimeni on Aleksi
+
+      // oliot_02
+      console.log("--Oliot 02--");
+
       console.log("Tehtävä 1");
       /* Tehtävä 1
       Luo JavaScript-taulukko nimeltä `kirjasto`, joka edustaa kirjojen kokoelmaa.
